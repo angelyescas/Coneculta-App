@@ -1,0 +1,7 @@
+{
+  "name": "Coneculta-App",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
