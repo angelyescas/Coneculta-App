@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar color="coneculta">
+    <ion-buttons slot="start" >
+      <ion-menu-button color="light" ></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Empleados</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="row mt-3">
+    <div class="col ion-text-right">
+      <ion-button size="small" routerLink="/empleado/nuevo" mode="ios" color="primary">
+        <ion-icon name="add-outline"></ion-icon>Agregar
+      </ion-button>
+    </div>
+  </div>
+
+
+  <div *ngIf="!cargando && empleados.length===0" class="ion-text-center">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>No hay registros<ion-icon name="alert-sharp"></ion-icon>
+        </ion-card-subtitle>
+        <ion-card-title>
+
+        </ion-card-title>
+      </ion-card-header>
+    </ion-card>
+  </div>
+
+
+  <div *ngIf="cargando" class="ion-text-center">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>Cargando...</ion-card-subtitle>
+        <ion-card-title>
+          <ion-icon name="refresh-circle-sharp"></ion-icon>
+        </ion-card-title>
+        Espere por favor
+      </ion-card-header>
+    </ion-card>
+  </div>
+
+  <ion-item *ngIf="empleados.length > 0">
+    <ion-label>Nombre</ion-label>
+    <ion-label>Telefono</ion-label>
+    <ion-label>Tools</ion-label>
+  </ion-item>
+  <ion-list *ngFor="let em of empleados; let i = index">
+    <ion-item>
+      <ion-label>{{em.nombre}}</ion-label>
+      <ion-label>{{em.phone}}</ion-label>
+      <ion-label>
+        <ion-button mode="ios" size="small" color="secondary" [routerLink]="['/empleado',em.id]">
+          <ion-icon name="pencil-sharp"></ion-icon>
+        </ion-button>
+        <ion-button mode="ios" size="small" color="danger" (click)="borrarEmpleado(em, i)">
+          <ion-icon name="trash-sharp"></ion-icon>
+        </ion-button>
+      </ion-label>
+
+    </ion-item>
+  </ion-list>
+
+
+</ion-content>

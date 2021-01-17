@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Empleado <small>Yesquitas</small></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="row mt-3">
+    <div class="col ion-text-right">
+      <ion-button routerLink="/empleados" mode="ios" color="primary">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+        Regresar
+      </ion-button>
+    </div>
+  </div>
+
+  <ion-grid>
+    <form [formGroup]="employeeForm" (ngSubmit)="save()">
+
+      <ion-row *ngIf="id !== 'nuevo'">
+        <ion-col class="paddin">
+          <ion-label>ID</ion-label>
+          <ion-input disabled="disabled" type="text" placeholder="Firebase id" formControlName="id" name="id">
+          </ion-input>
+          <small class="form-text text-muted">Este campo es autogenerado</small>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col class="paddin">
+          <ion-label>Nombre(s)</ion-label>
+          <ion-input placeholder="Ingrese el nombre del empleado" formControlName="nombre" name="nombre" required>
+          </ion-input>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col class="paddin">
+          <ion-label>Apellidos</ion-label>
+          <ion-input placeholder="Ingrese el apellido del empleado" formControlName="apellido" name="apellido">
+          </ion-input>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col class="paddin">
+          <ion-label>Telefono</ion-label>
+          <ion-input placeholder="Ingrese el telefono del empleado" type="number" formControlName="phone" name="phone">
+          </ion-input>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col class="paddin">
+          <ion-label>Rol</ion-label><br>
+          <ion-select interface="alert" placeholder="Selecciona el rol" formControlName="rol" name="rol" mode="ios">
+            <ion-select-option value="usuario">Recursos Humanos</ion-select-option>
+            <ion-select-option value="administrador">Trabajador</ion-select-option>
+          </ion-select>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col class="paddin">
+          <ion-label>Contraseña</ion-label>
+          <ion-input placeholder="Ingrese la contraseña del empleado" type="text" formControlName="password"
+            name="password">
+          </ion-input>
+        </ion-col>
+      </ion-row>
+
+      <div class="form group ion-text-center">
+        <ion-button type="submit" color="tertiary" [disabled]="this.employeeForm.invalid" color="primary">
+          <ion-icon name="save-sharp"></ion-icon>
+          &nbsp; Guardar
+        </ion-button>
+      </div>
+
+    </form>
+  </ion-grid>
+</ion-content>

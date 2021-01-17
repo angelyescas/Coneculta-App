@@ -11,6 +11,9 @@
   --ion-color-primary-shade: #3171e0;
   --ion-color-primary-tint: #4c8dff;
 
+  --font-gandhi: 'GandhiSerifBold';
+  --font-gotham: 'Gotham';
+
   /** secondary **/
   --ion-color-secondary: #3dc2ff;
   --ion-color-secondary-rgb: 61, 194, 255;
@@ -74,6 +77,14 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+//coneculta
+  --ion-color-coneculta: #621132;
+  --ion-color-coneculta-rgb: 98,17,50;
+  --ion-color-coneculta-contrast: #ffffff;
+  --ion-color-coneculta-contrast-rgb: 255,255,255;
+  --ion-color-coneculta-shade: #560f2c;
+  --ion-color-coneculta-tint: #722947;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -229,4 +240,25 @@
 
     --ion-card-background: #1e1e1e;
   }
+  @font-face {
+    font-family: 'GandhiSerifBold';
+    font-style: normal;
+    font-weight: normal;
+    src: url('../assets/fonts/GandhiSerif-Bold-webfont.ttf');
+  }
+  @font-face {
+    font-family: 'Gotham';
+    font-style: normal;
+    font-weight: normal;
+    src: url('../assets/fonts/gotham.otf');
+  }
+}
+
+.ion-color-coneculta {
+  --ion-color-base: var(--ion-color-coneculta) !important;
+  --ion-color-base-rgb: var(--ion-color-coneculta-rgb) !important;
+  --ion-color-contrast: var(--ion-color-coneculta-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-coneculta-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-coneculta-shade) !important;
+  --ion-color-tint: var(--ion-color-coneculta-tint) !important;
 }

@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar color="coneculta"></ion-toolbar>
+</ion-header>
+<ion-content>
+  <br>
+  <h2 class="gandhi"> Verifica tu numero </h2>
+  <br><br>
+  <h4 class="gotham">Coneculta te enviara un SMS para verificar tu numero de telefono para poder acceder
+    a la aplicacion. Introduce tu numero de telefono</h4>
+  <br>
+  <form (ngSubmit)="login()">
+    <div class="col ion-text-center">
+      <ion-item>
+        <ion-input type="number" [formControl]="phone" placeholder="Telefono">
+        </ion-input>
+      </ion-item>
+      <span *ngIf="phone.errors" class="text-danger">El telefono es obligatorio</span>
+      <ion-item>
+        <ion-input type="text" [formControl]="password" placeholder="Contraseña">
+        </ion-input>
+      </ion-item>
+      <span *ngIf="password.errors" class="text-danger">La contraseña es obligatorio</span>
+      <br>
+      <br>
+      <ion-button type="submit" color="coneculta" [disabled]="phone.invalid || password.invalid">Enviar</ion-button>
+    </div>
+  </form>
+
+  <br>
+
+
+
+</ion-content>
