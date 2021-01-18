@@ -28,7 +28,10 @@ export class LoginPage implements OnInit {
         let empleado: EmpleadoModel = empleados[0];
         this.alert.success("¡Inicio sesión exitosamente!");
         this.employeeService.saveLocal(empleado);
-        this.router.navigate(['/empleados']);
+        if (empleado.rol == "administrador")
+          this.router.navigate(['/empleados']);
+        else
+          this.router.navigate(['/asistencia']);
       } else {
         this.alert.warning("¡Telefono o contraseña no valido!");
       }
