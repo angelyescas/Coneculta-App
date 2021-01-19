@@ -7,6 +7,15 @@
     width: 50%;
  }
 
+ .col-40 {
+    background: var(--ion-color-coneculta);
+    width: 40%;
+ }
+ .col-60 {
+    background: var(--ion-color-coneculta);
+    width: 60%;
+ }
+
  .col-80{
     width: 80%;
  }
@@ -56,6 +65,10 @@
     font-size: 15px;
 }
 
+.fontzise-10{
+    font-size: 10x;
+}
+
 .mb-2{
     margin-bottom: 0.2rem;
 }
@@ -67,6 +80,10 @@
 .pl-2{
    padding-left: 2%;
 }
+
+.pl-5{
+    padding-left: 5%;
+ }
 
 .pt-3{
     padding-top: 3%;
@@ -115,6 +132,11 @@
    margin-left: 4%;
    margin-right: 4%;
 }
+
+.ml-4{
+    margin-left: 4%;
+    margin-right: 4%;
+ }
 
 .mx-5{
    margin-left: 5%;

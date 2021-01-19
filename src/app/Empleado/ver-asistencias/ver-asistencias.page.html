@@ -1,0 +1,136 @@
+<ion-header>
+  <ion-toolbar color="coneculta">
+    <ion-buttons slot="start" >
+      <ion-menu-button color="light" ></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Asistencias</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+    <ion-item lines="full" >
+
+      <div class="row text-align: center" >
+        
+        <div class="col-80">
+          <ion-label >
+            <ion-datetime value="2019-10-01T15:43:40.394Z" display-timezone="utc"></ion-datetime>
+          </ion-label>
+        </div>
+        
+        <div class="col-20 pl-2 pt-2">
+          <ion-icon size="large" name="search"></ion-icon>
+        </div>
+      </div>
+        
+        
+    </ion-item>
+    
+    
+    <ion-grid>
+    
+        <ion-row (click)="asistenciaDetalle()"> 
+            <ion-col class="border-gray px-5">
+              <div class="row">
+                <div class="col-80 px-4">
+                    <div><ion-label class=primary-color>Lunes</ion-label></div>
+                    <div><ion-label>18/01/2021</ion-label></div>
+                </div>
+                <div class="col-20 pl-2 pt-2">
+                    <ion-icon size="large" name="checkmark"></ion-icon>
+                </div>
+              </div>
+            </ion-col>
+        </ion-row>
+        
+        <ion-row> 
+          <ion-col class="border-gray px-5">
+            <div class="row">
+              <div class="col-80 px-4">
+                  <div><ion-label class=primary-color>Domingo</ion-label></div>
+                  <div><ion-label>17/01/2021</ion-label></div>
+              </div>
+              <div class="col-20 pl-2 pt-2">
+                  <ion-icon size="large" name="time-sharp"></ion-icon>
+              </div>
+            </div>
+          </ion-col>
+      </ion-row>
+
+      <ion-row> 
+        <ion-col class="border-gray px-5">
+          <div class="row">
+            <div class="col-80 px-4">
+                <div><ion-label class=primary-color>Sabado</ion-label></div>
+                <div><ion-label>16/01/2021</ion-label></div>
+            </div>
+            <div class="col-20 pl-2 pt-2">
+                <ion-icon size="large" name="time-sharp"></ion-icon>
+            </div>
+          </div>
+        </ion-col>
+    </ion-row>
+
+    <ion-row> 
+      <ion-col class="border-gray px-5">
+        <div class="row">
+          <div class="col-80 px-4">
+              <div><ion-label class=primary-color>Viernes</ion-label></div>
+              <div><ion-label>15/01/2021</ion-label></div>
+          </div>
+          <div class="col-20 pl-2 pt-2">
+              <ion-icon size="large" name="time-sharp"></ion-icon>
+          </div>
+        </div>
+      </ion-col>
+  </ion-row>
+
+  <ion-row> 
+    <ion-col class="border-gray px-5">
+      <div class="row">
+        <div class="col-80 px-4">
+            <div><ion-label class=primary-color>Jueves</ion-label></div>
+            <div><ion-label>14/01/2021</ion-label></div>
+        </div>
+        <div class="col-20 pl-2 pt-2">
+            <ion-icon size="large" name="time-sharp"></ion-icon>
+        </div>
+      </div>
+    </ion-col>
+</ion-row>
+
+<ion-row> 
+  <ion-col class="border-gray px-5">
+    <div class="row">
+      <div class="col-80 px-4">
+          <div><ion-label class=primary-color>Miercoles</ion-label></div>
+          <div><ion-label>14/01/2021</ion-label></div>
+      </div>
+      <div class="col-20 pl-2 pt-2">
+          <ion-icon size="large" name="time-sharp"></ion-icon>
+      </div>
+    </div>
+  </ion-col>
+</ion-row>
+
+<ion-row> 
+  <ion-col class="border-gray px-5">
+    <div class="row">
+      <div class="col-80 px-4">
+          <div><ion-label class=primary-color>Martes</ion-label></div>
+          <div><ion-label>13/01/2021</ion-label></div>
+      </div>
+      <div class="col-20 pl-2 pt-2">
+          <ion-icon size="large" name="time-sharp"></ion-icon>
+      </div>
+    </div>
+  </ion-col>
+</ion-row>
+
+
+    </ion-grid>
+    
+    
+   
+</ion-content>
+

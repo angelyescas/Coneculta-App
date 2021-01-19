@@ -24,3 +24,21 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+.error-toast {
+    --background: red;
+    --color: white;
+    text-align: center;
+  }
+  
+  .warning-toast {
+    --background: orange;
+    --color: white;
+    text-align: center;
+  }
+  
+  .success-toast {
+    --background: green;
+    --color: white;
+    text-align: center;
+  }

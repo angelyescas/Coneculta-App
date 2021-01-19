@@ -3,26 +3,32 @@
 </ion-header>
 <ion-content>
   <br>
-  <h2 class="gandhi"> Verifica tu numero </h2>
-  <br><br>
-  <h4 class="gotham">Coneculta te enviara un SMS para verificar tu numero de telefono para poder acceder
+  <h2 class="gothic"> Verifica tu numero </h2>
+
+  <h4 class="gothic">Coneculta te enviara un SMS para verificar tu numero de telefono para poder acceder
     a la aplicacion. Introduce tu numero de telefono</h4>
-  <br>
+    
   <form (ngSubmit)="login()">
     <div class="col ion-text-center">
-      <ion-item>
+      <div class="px">
+      <ion-item class="phone">
         <ion-input type="number" [formControl]="phone" placeholder="Telefono">
         </ion-input>
       </ion-item>
+      </div>
       <span *ngIf="phone.errors" class="text-danger">El telefono es obligatorio</span>
-      <ion-item>
-        <ion-input type="text" [formControl]="password" placeholder="Contraseña">
+      <div class="px">
+      <ion-item class="password">
+        <ion-input type="password" [formControl]="password" placeholder="Contraseña">
         </ion-input>
       </ion-item>
+    </div>
       <span *ngIf="password.errors" class="text-danger">La contraseña es obligatorio</span>
       <br>
       <br>
-      <ion-button type="submit" color="coneculta" [disabled]="phone.invalid || password.invalid">Enviar</ion-button>
+      <div class="botonLogin">
+      <ion-button  type="submit" color="coneculta" [disabled]="phone.invalid || password.invalid">Enviar</ion-button>
+    </div>
     </div>
   </form>
 

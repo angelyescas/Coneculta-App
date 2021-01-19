@@ -13,6 +13,7 @@
 
   --font-gandhi: 'GandhiSerifBold';
   --font-gotham: 'Gotham';
+  --font-gothic: 'Century Gothic';
 
   /** secondary **/
   --ion-color-secondary: #3dc2ff;
@@ -251,6 +252,12 @@
     font-style: normal;
     font-weight: normal;
     src: url('../assets/fonts/gotham.otf');
+  }
+  @font-face {
+    font-family: 'Century Gothic';
+    font-style: normal;
+    font-weight: normal;
+    src: url('../assets/fonts/GOTHIC.ttf');
   }
 }
 

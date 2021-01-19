@@ -17,15 +17,14 @@ export class AppComponent implements OnInit {
   currentUser: EmpleadoModel;
   public appPages = [
     {
-      title: 'Asistencia',
-      url: '/asistencia',
+      title: 'Ver-asistencias',
+      url: '/ver-asistecias',
       svg: '../assets/icon/asistencia.svg',
       role: "administrador"
     },
     {
       title: 'Empleados',
       url: '/empleados',
-      svg: '../assets/icon/asistencia.svg',
       role: "usuario"
     }
   ];
@@ -49,7 +48,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    const path = window.location.pathname.split('asistencia/')[1];
+    const path = window.location.pathname.split('ver-asistecias/')[1];
     this.employeeService.employee.subscribe(res => {
       this.currentUser = this.employeeService.getLocal();
     });

@@ -23,7 +23,16 @@ const routes: Routes = [
   {
     path: 'asistencia',
     loadChildren: () => import('./Empleado/asistencia/asistencia.module').then(m => m.AsistenciaPageModule), canActivate: [AuthGuard]
+  },
+  {
+    path: 'ver-asistencias',
+    loadChildren: () => import('./Empleado/ver-asistencias/ver-asistencias.module').then( m => m.VerAsistenciasPageModule), canActivate: [AuthGuard]
+  },
+  {
+    path: 'asistencia-detalle',
+    loadChildren: () => import('./Empleado/asistencia-detalle/asistencia-detalle.module').then( m => m.AsistenciaDetallePageModule), canActivate: [AuthGuard]
   }
+
 ];
 
 @NgModule({
