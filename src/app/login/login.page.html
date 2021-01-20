@@ -12,14 +12,14 @@
     <div class="col ion-text-center">
       <div class="px">
       <ion-item class="phone">
-        <ion-input type="number" [formControl]="phone" placeholder="Telefono">
+        <ion-input type="number" [formControl]="phone" placeholder="Telefono" > 
         </ion-input>
       </ion-item>
       </div>
       <span *ngIf="phone.errors" class="text-danger">El telefono es obligatorio</span>
       <div class="px">
       <ion-item class="password">
-        <ion-input type="password" [formControl]="password" placeholder="Contraseña">
+        <ion-input type="password" [formControl]="password" placeholder="Contraseña"> 
         </ion-input>
       </ion-item>
     </div>
@@ -27,7 +27,7 @@
       <br>
       <br>
       <div class="botonLogin">
-      <ion-button  type="submit" color="coneculta" [disabled]="phone.invalid || password.invalid">Enviar</ion-button>
+      <ion-button expand="full" type="submit" color="coneculta" [disabled]="phone.invalid || password.invalid">Enviar</ion-button>
     </div>
     </div>
   </form>
