@@ -11,10 +11,12 @@
             <ion-note>{{currentUser.nombre + ' ' + currentUser.apellido}}</ion-note>
             <br>
             <ion-note>{{currentUser.phone}}</ion-note>
+            <br>
+            <ion-note>{{currentUser.id}}</ion-note>
           </div>
           <ion-menu-toggle auto-hide="false">
 
-            <ion-item routerDirection="root" routerLink="/ver-asistencias" lines="none" detail="false">
+            <ion-item  routerDirection="root" routerLink="/ver-asistencias" lines="none" detail="false">
               <ion-icon color="light" src="../assets/icon/asistencia.svg" slot="start"></ion-icon>
               <ion-label>Asistencia</ion-label>
             </ion-item>

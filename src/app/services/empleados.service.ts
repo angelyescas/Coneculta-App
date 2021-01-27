@@ -77,7 +77,7 @@ export class EmpleadosService {
   }
 
   get isLogged(): boolean {
-    return this.getLocal() != null;;
+    return this.getLocal() != null;
   }
 
 }

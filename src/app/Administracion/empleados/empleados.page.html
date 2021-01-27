@@ -8,14 +8,11 @@
 </ion-header>
 
 <ion-content>
-  <div class="row mt-3">
-    <div class="col ion-text-right">
-      <ion-button size="small" routerLink="/empleado/nuevo" mode="ios" color="primary">
+  <ion-item>
+      <ion-button size="small" routerLink="/empleado/nuevo" mode="ios" color="primary" slot="end">
         <ion-icon name="add-outline"></ion-icon>Agregar
       </ion-button>
-    </div>
-  </div>
-
+    </ion-item>
 
   <div *ngIf="!cargando && empleados.length===0" class="ion-text-center">
     <ion-card>

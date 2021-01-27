@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
+import { AsistenciaService } from '../../services/asistencia.service';
+import { ToastService } from 'src/app/services/toast.service';
+
 @Component({
   selector: 'app-ver-asistencias',
   templateUrl: './ver-asistencias.page.html',
@@ -8,15 +12,36 @@ import { MenuController } from '@ionic/angular';
 })
 export class VerAsistenciasPage implements OnInit {
 
-  constructor(private menu: MenuController, private router: Router) {} 
+  
+
+  constructor(private menu: MenuController, private router: Router, private barcodeScanner: BarcodeScanner,
+              public   asistenciaService: AsistenciaService,private alert: ToastService) {} 
 
   ngOnInit() {
     
+    this.menu.enable(true);
+    
   }
 
-  asistenciaDetalle()
+  asistenciaDetalle(guarda)
   {
     //this.alert.error("¡Ocurrió un error al realizar la operación!");
     this.router.navigate(['/asistencia-detalle']); //Borrar siempre manda a esta parte aun la contraseña este bien
+    console.log(guarda);
+  }
+
+  
+  scan(){
+    this.barcodeScanner.scan().then(barcodeData => {
+      console.log('Barcode data', barcodeData);
+
+      if( !barcodeData.cancelled){
+        this.asistenciaService.SaveRegister(barcodeData.text);
+         
+      }
+     }).catch(err => {
+         console.log('Error', err);
+         this.asistenciaService.SaveRegister("https://cuevana3.io/");
+     });
   }
 }
