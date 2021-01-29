@@ -1,7 +1,13 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, NgForm, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
+import { Console } from 'console';
+import { EmpleadoModel } from 'src/app/Models/empleado.model';
+import { HorarioModel } from 'src/app/Models/horario.model';
+import { EmpleadosService } from 'src/app/services/empleados.service';
+import { HorariosService } from 'src/app/services/horarios.service';
+import { ToastService } from 'src/app/services/toast.service';
 @Component({
   selector: 'app-asistencia',
   templateUrl: './asistencia.page.html',
@@ -12,30 +18,95 @@ export class AsistenciaPage implements OnInit {
   @ViewChild('hrHand', {static: false}) hrHand:ElementRef;
   @ViewChild('minHand', {static: false}) minHand:ElementRef;
   @ViewChild('secHand', {static: false}) secHand:ElementRef;
-  
+  currentUser: EmpleadoModel;
+  horario_lista: HorarioModel;
+  horarios: any = [{ data: {} as HorarioModel}];
+
   fecha: string = "";
   hora: string = "";
   dia: string = "";
-
+  
+  //#region Reloj Analogico
   day: string = "";
   month: string = "";
-
   hour: string = "";
   minute: string = "";
   second: string = "";
+  //#endregion
 
-  constructor(private router: Router) {} 
+  //#region Mostrar hora entrada/salida
+  Aux: Date;
+  hora_entrada: string;
+  hora_salida: string;
+  id: string;
+  //#endregion
+  
+  
+
+  constructor(private router: Router, private route: ActivatedRoute,private empleadosService: EmpleadosService, private alert: ToastService) {} 
 
   ngOnInit() {
+
+    
 
     setInterval(()=>{
       const date = new Date();
       this.updateClock(date);
-      this.getFecha(date);
+      this.fecha = this.getFecha(date);
       this.getHora(date);
       this.getDia(date);
       },1000);
+      
+      this.getEmpleadoHorario();
   }
+
+  getOnlyEmployes(){
+    this.currentUser = this.empleadosService.getLocal();
+    this.empleadosService.getById_horario(this.currentUser.id)
+        .subscribe((resp: EmpleadoModel) => {
+          this.getAllHorario(resp.horarios)
+        });
+  }
+
+  getAllHorario(horaios: any) {
+    horaios.subscribe( datos =>{
+      this.Aux = new Date ();
+      this.horarios.hora_salida = this.getDia(this.Aux);
+      this.horarios = datos;
+
+      console.log("horarios", this.horarios);
+      
+      this.horarios.forEach(hora => {
+        let newDate= new Date(hora.fecha) 
+        this.Aux.setHours(0,0,0,0);
+        if(newDate.getMonth() == this.Aux.getMonth() && newDate.getFullYear() == this.Aux.getFullYear() && newDate.getDate() == this.Aux.getDate() ){
+            this.hora_entrada = hora.hora_entrada
+            this.hora_salida = hora.hora_salida
+        }
+      });
+      
+    })
+  }
+
+  getEmpleadoHorario(){
+    this.currentUser = this.empleadosService.getLocal();
+    this.empleadosService.getHorarioEmpleado(this.getFecha(new Date), this.currentUser.id).subscribe((horarios: HorarioModel[]) => {
+      if (horarios.length > 0) {
+        let horario: HorarioModel = horarios[0];
+        this.hora_entrada = horario.hora_entrada;
+        this.hora_salida = horario.hora_salida;
+        this.alert.warning("¡Horario Encontrado!");
+      } 
+      else {
+        this.alert.warning("¡No ha registrado ninguna asistencia el dia de hoy!");
+        this.hora_entrada = "------";
+        this.hora_salida = "------";
+      }
+    }, error => {
+      this.alert.error("¡Ocurrió un error al realizar la operación!");
+    });
+  }
+
 
   updateClock(date){
     this.secHand.nativeElement.style.transform = 'rotate(' +
@@ -55,7 +126,9 @@ export class AsistenciaPage implements OnInit {
     if((date.getMonth()+1)<10)
       this.month = "0"+ (date.getMonth()+1);
 
-      this.fecha = this.day+"/"+this.month+"/"+date.getFullYear();
+      let fecha = this.month+"/"+23+"/"+date.getFullYear();
+
+      return fecha;
   }
   
   getHora(date){

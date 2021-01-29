@@ -92,12 +92,24 @@
     
     <ion-grid>
     
+
+      <!--ion-item *ngIf="horarios.length > 0">
+        <ion-label>Nombre</ion-label>
+        <ion-label>Telefono</ion-label>
+      </ion-item>
+      <ion-list *ngFor="let em of horarios; let i = index">
+        <ion-item>
+          <ion-label>{{em.hora_entrada}}</ion-label>
+          <ion-label>{{em.hora_salida}}</ion-label>
+        </ion-item>
+      </ion-list-->
+        
         <ion-row> 
             <ion-col class="border-gray px-5">
               <div class="row">
                 <div class="col-80 px-4">
                     <div><ion-label class=primary-color>Entrada</ion-label></div>
-                    <div><ion-label>8:15am</ion-label></div>
+                    <div><ion-label>{{hora_entrada}}</ion-label></div>
                 </div>
                 <div class="col-20 pl-2 pt-2">
                     <ion-icon size="large" name="checkmark"></ion-icon>
@@ -106,12 +118,12 @@
             </ion-col>
         </ion-row>
         
-        <ion-row> 
+        <ion-row *ngIf="hora_salida == '17:00' "> 
           <ion-col class="border-gray px-5">
             <div class="row">
               <div class="col-80 px-4">
-                  <div><ion-label class=primary-color>Entrada</ion-label></div>
-                  <div><ion-label>8:15am</ion-label></div>
+                  <div><ion-label class=primary-color>salida</ion-label></div>
+                  <div><ion-label>{{hora_salida}}</ion-label></div>
               </div>
               <div class="col-20 pl-2 pt-2">
                   <ion-icon size="large" name="time-sharp"></ion-icon>
