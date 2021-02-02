@@ -31,7 +31,7 @@ export class LoginPage implements OnInit {
         if (empleado.rol == "administrador")
           this.router.navigate(['/empleados']);
         else
-          this.router.navigate(['/ver-asistencias']);
+          this.router.navigate(['/asistencia']);
       } else {
         this.alert.warning("¡Telefono o contraseña no valido!");
       }
