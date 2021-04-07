@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
-import { AsistenciaService } from '../../services/asistencia.service';
 import { ToastService } from 'src/app/services/toast.service';
 
 @Component({
@@ -15,7 +14,7 @@ export class VerAsistenciasPage implements OnInit {
   
 
   constructor(private menu: MenuController, private router: Router, private barcodeScanner: BarcodeScanner,
-              public   asistenciaService: AsistenciaService,private alert: ToastService) {} 
+              private alert: ToastService) {} 
 
   ngOnInit() {
     
@@ -36,12 +35,12 @@ export class VerAsistenciasPage implements OnInit {
       console.log('Barcode data', barcodeData);
 
       if( !barcodeData.cancelled){
-        this.asistenciaService.SaveRegister(barcodeData.text);
+        //this.asistenciaService.SaveRegister(barcodeData.text);
          
       }
      }).catch(err => {
          console.log('Error', err);
-         this.asistenciaService.SaveRegister("https://cuevana3.io/");
+        //this.asistenciaService.SaveRegister("https://cuevana3.io/");
      });
   }
 }

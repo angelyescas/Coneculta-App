@@ -1,3 +1,9 @@
+ion-grid{
+   min-height: 10px;
+   width: 100%;
+   margin-bottom: 38%;
+}
+
 .col1 {
     background: var(--ion-color-coneculta);
     width: 50%;
@@ -5,6 +11,11 @@
     justify-content: center;
     align-items: center;
  }
+
+ .text-zise{
+    font-size: 15px;
+ }
+
  .col2 {
     background: var(--ion-color-coneculta);
     width: 50%;
@@ -17,6 +28,15 @@
  .col-20{
     width: 20%;
  }
+ .col-25{
+   width: 25%;
+}
+ .col-60{
+   width: 60%;
+}
+.col-40{
+   width: 40%;
+}
 
  .row {
    display: flex;
@@ -82,6 +102,9 @@
 .px-5{
    margin-left: 5%;
    margin-right: 5%;
+}
+.mt-1{
+   margin-bottom: -1px;
 }
 
 .px-2{

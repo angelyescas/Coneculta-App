@@ -1,13 +1,15 @@
-export class AsistenciaModel {
-    public text: string;
-    public date: Date;
+import { empty } from "rxjs";
 
-    constructor(text: string){
-        this.text = text;
-        this.date = new Date();
-        
-    }
-
+export interface AsistenciaModel {
+    id?:string,
+    dia: string,
+    fecha: string,
+    horaE: string,
+    horaS: string,
+    tipo: string,
+    retardo: string,
+    justificada: string,
+    falta: string
 }
 
     

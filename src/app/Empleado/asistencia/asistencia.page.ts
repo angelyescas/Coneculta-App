@@ -7,6 +7,11 @@ import { HorarioModel } from 'src/app/Models/horario.model';
 import { EmpleadosService } from 'src/app/services/empleados.service';
 import { HorariosService } from 'src/app/services/horarios.service';
 import { ToastService } from 'src/app/services/toast.service';
+
+import { ConecultaApiService } from 'src/app/Api/coneculta_api.service';
+import { AsistenciaModel } from 'src/app/Models/asistencia.model';
+
+
 @Component({
   selector: 'app-asistencia',
   templateUrl: './asistencia.page.html',
@@ -24,6 +29,7 @@ export class AsistenciaPage implements OnInit {
   fecha: string = "";
   hora: string = "";
   dia: string = "";
+  dia2: string = "";
   
   //#region Reloj Analogico
   day: string = "";
@@ -40,15 +46,15 @@ export class AsistenciaPage implements OnInit {
   id: string;
   //#endregion
   
-  
+  ListHours:AsistenciaModel[]
 
-  constructor(private router: Router, private route: ActivatedRoute,private empleadosService: EmpleadosService, private alert: ToastService) {} 
+  constructor(private ConecultaApiService: ConecultaApiService ,private router: Router, private route: ActivatedRoute,private empleadosService: EmpleadosService, private alert: ToastService) {} 
 
   ngOnInit() {
 
     
 
-    setInterval(()=>{
+      setInterval(()=>{
       const date = new Date();
       this.updateClock(date);
       this.fecha = this.getFecha(date);
@@ -56,7 +62,16 @@ export class AsistenciaPage implements OnInit {
       this.getDia(date);
       },1000);
       
+      this.getHorarios();
       this.getEmpleadoHorario();
+  }
+  getHorarios(){
+    //console.log(this.ConecultaApiService.getHorarios())
+    this.ConecultaApiService.getHorarios().subscribe(
+      (response) => { 
+        this.ListHours = response
+       },
+      (error) => { console.log(error) })
   }
 
   getOnlyEmployes(){

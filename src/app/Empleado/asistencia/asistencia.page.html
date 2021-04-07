@@ -1,5 +1,5 @@
 
-<ion-header>
+<ion-header class="ion-no-border">
   <ion-toolbar color="coneculta">
     <ion-buttons slot="start" >
       <ion-menu-button color="light" ></ion-menu-button>
@@ -7,6 +7,7 @@
     <ion-title>Asistencia</ion-title>
 
   </ion-toolbar>
+  
     <div class="row">
       <div class="col1">
         <div class="dummy-card">
@@ -84,37 +85,75 @@
         <div class="fontzise-15 gray mb-2">{{fecha}}</div>
       </div>
 </div>
+
 </ion-header>
-
 <ion-content>
-    
 
-    
     <ion-grid>
-    
-
-      <!--ion-item *ngIf="horarios.length > 0">
-        <ion-label>Nombre</ion-label>
-        <ion-label>Telefono</ion-label>
-      </ion-item>
-      <ion-list *ngFor="let em of horarios; let i = index">
-        <ion-item>
-          <ion-label>{{em.hora_entrada}}</ion-label>
-          <ion-label>{{em.hora_salida}}</ion-label>
-        </ion-item>
-      </ion-list-->
-        
-        <ion-row> 
-            <ion-col class="border-gray px-5">
+      
+      <ion-row> 
+        <ion-col class="border-gray px-5 mt-1">
+          
+          <div class="row">
+            <div class="col-40 px-4">
+              <div><ion-label class="text-zise">Fecha</ion-label></div>
+            </div>
+            <div class="col-60">
               <div class="row">
-                <div class="col-80 px-4">
-                    <div><ion-label class=primary-color>Entrada</ion-label></div>
-                    <div><ion-label>{{hora_entrada}}</ion-label></div>
+                <div class="col-25 text-center">
+                  <div><ion-label >Tipo</ion-label></div>
                 </div>
-                <div class="col-20 pl-2 pt-2">
-                    <ion-icon size="large" name="checkmark"></ion-icon>
+                <div class="col-25 text-center">
+                  <div><ion-label >J</ion-label></div>
+                </div>
+                <div class="col-25 text-center">
+                  <div><ion-label >R</ion-label></div>
+                </div>
+                <div class="col-25 text-center">
+                  <div><ion-label >F</ion-label></div>
                 </div>
               </div>
+            </div>
+          </div>
+
+        </ion-col>
+      </ion-row>
+        
+        <ion-row *ngFor="let asistencia of ListHours"> 
+            <ion-col class="border-gray px-5">
+              
+              <div class="row">
+                <div class="col-40 px-4">
+                    <div><ion-label class="primary-color">{{asistencia.dia}}</ion-label></div>
+                </div>
+
+                <div class="col-60 ">
+                  <div class="row">
+                      <div class="col-25 border-gray text-center">
+                        <div><ion-label class="primary-color">{{asistencia.tipo}}</ion-label></div>
+                      </div>
+                      <div class="col-25 border-gray text-center">
+                        <div><ion-label class="primary-color">{{asistencia.justificada}}</ion-label></div>
+                      </div>
+                      <div class="col-25 border-gray text-center">
+                        <div><ion-label class="primary-color">{{asistencia.retardo}}</ion-label></div>
+                      </div>
+                      <div class="col-25 border-gray text-center">
+                        <div><ion-label class="primary-color ">{{asistencia.falta}}</ion-label></div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row pt-2">
+                <div class="col-40 px-4">
+                  <div><ion-label class="text-zise">{{asistencia.fecha}}</ion-label></div>
+                </div>
+                <div class="col-60 ">
+                  <div class="text-center"><ion-label class="text-zise ">{{asistencia.horaE}}  -  {{asistencia.horaS}}</ion-label></div>
+                </div>
+              </div>
+
             </ion-col>
         </ion-row>
         
@@ -122,8 +161,8 @@
           <ion-col class="border-gray px-5">
             <div class="row">
               <div class="col-80 px-4">
-                  <div><ion-label class=primary-color>salida</ion-label></div>
-                  <div><ion-label>{{hora_salida}}</ion-label></div>
+                  <div><ion-label class=primary-color>Lunes</ion-label></div>
+                  <div><ion-label>08/02/2021</ion-label></div>
               </div>
               <div class="col-20 pl-2 pt-2">
                   <ion-icon size="large" name="time-sharp"></ion-icon>
@@ -132,13 +171,10 @@
           </ion-col>
       </ion-row>
 
-        <div class="mt-40 px-5">
-          <div class="text-center"><ion-label >Realizar una salida antes de las 17:15 horas sdasd</ion-label></div>
-        </div>
-        
     </ion-grid>
     
-    <footer class="contenedor">
+    
+    <!--footer class="contenedor">
       
       <form (ngSubmit)="inicio()">
         <div class="mb-25 px-6">
@@ -148,6 +184,36 @@
         </div>
       </form>
 
-    </footer>
-   
+    </footer-->
+  
+<ion-card class="contenedor" slot="fixed">
+  <ion-item>
+    <ion-avatar slot="end">
+      <img src="./assets/icon/icono.png">
+    </ion-avatar>
+    <ion-label>
+      <h3>Juan Manuel Martinez Perez</h3>
+      <p>Total de registros: 37</p>
+      <p>Retardos: 10</p>
+      <p>Faltas: 37</p>
+    </ion-label>
+  </ion-item>
+</ion-card>
+
 </ion-content>
+
+
+<!-- <ion-footer class="contenedor">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+      <ion-card-title>Card Title</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      Keep close to Nature's heart... and break clear away, once in awhile,
+    </ion-card-content>
+  </ion-card>
+</ion-footer>  -->
+
+
